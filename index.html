@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Angular Js Auth</title>
+    <script src='node_modules/jquery/dist/jquery.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <base href="/">
+  </head>
+  <body>
+
+    <div ng-app='app'>
+      <navbar> </navbar>
+      <div class='container'>
+        <ui-view> </ui-view>
+      </div>
+    </div>
+
+    <script src='node_modules/angular/angular.js'> </script>
+    <script src='node_modules/@uirouter/angularjs/release/angular-ui-router.js'> </script>
+    <script src='node_modules/auth0-js/build/auth0.js'> </script>
+    <script src='node_modules/angular-auth0/dist/angular-auth0.js'> </script>
+    <script src='app/app.js'></script>
+    <script src='app/app.run.js'></script>
+    <script src='app/navbar/navbar.directive.js'></script>
+    <script src='app/home/home.controller.js'></script>
+    <script src='app/callback/callback.controller.js'></script>
+    <script src="app/auth/auth.service.js"> </script>
+
+  </body>
+</html>
