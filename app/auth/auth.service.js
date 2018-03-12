@@ -27,9 +27,22 @@
         localStorage.setItem('expires_at',expiresAt);
       }
 
+      function logout(){
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('id_token');
+        localStorage.removeItem('expires_at');
+      }
+
+      function isAuthenticated(){
+        var expiresAt=JSON.parse(localStorage.getItem('expires_at'));
+        return new Date().getTime() < expiresAt;
+      }
+
       return {
         login : login,
-        handleAuthentication: handleAuthentication
+        handleAuthentication: handleAuthentication,
+        logout: logout,
+        isAuthenticated: isAuthenticated
       }
   }
 
