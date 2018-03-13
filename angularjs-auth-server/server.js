@@ -23,7 +23,7 @@ app.use(jwtCheck);
 
 
 app.get('/authorized', function (req, res) {
-  res.send('Secured Resource');
+  res.json({message:'Secured Resources'});
 });
 
 app.listen(port);

@@ -5,7 +5,7 @@
       <a class="navbar-brand" href="#">Angular Auth 0 </a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a ui-sref='home'>Home</a></li>
       <li ng-if='vm.auth.isAuthenticated()'><a ui-sref='profile'>Profile</a></li>
       <li ng-if='!vm.auth.isAuthenticated()'><a ng-click='vm.auth.login()'>Login In </a></li>
       <li ng-if='vm.auth.isAuthenticated()'><a ng-click='vm.auth.logout()'>Log Out</a></li>

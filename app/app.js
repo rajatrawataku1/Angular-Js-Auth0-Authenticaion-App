@@ -1,14 +1,15 @@
 (function(){
 
   angular
-      .module('app',['auth0.auth0','ui.router'])
+      .module('app',['auth0.auth0','ui.router','angular-jwt'])
       .config(config);
 
       config.$inject=[
-        '$stateProvider', '$locationProvider', '$urlRouterProvider','angularAuth0Provider'
+        '$stateProvider', '$locationProvider', '$urlRouterProvider','angularAuth0Provider',
+        'jwtOptionsProvider','$httpProvider'
       ];
 
-      function config ($stateProvider, $locationProvider, $urlRouterProvider,angularAuth0Provider){
+      function config ($stateProvider, $locationProvider, $urlRouterProvider,angularAuth0Provider,jwtOptionsProvider,$httpProvider){
         $stateProvider.state('home',{
           url:'/',
           controller:'HomeController',
@@ -36,6 +37,15 @@
           scope:'openid profile',
           audience: 'https://rajat-rawat.com/api'
         })
+
+        jwtOptionsProvider.config({
+          tokenGetter: function(){
+            return localStorage.getItem('accessToken');
+          },
+          whiteListedDomains:['localhost']
+        });
+
+        $httpProvider.interceptors.push('jwtInterceptor');
 
         $urlRouterProvider.otherwise('/');
         $locationProvider.hashPrefix('');
