@@ -1,5 +1,5 @@
 <h4> Hello World I am in the home bro !!!!</h4>
 
-<button ng-click='vm.getMessage()' class='btn btn-primary'> Get a Message</button>
+<button ng-if='vm.auth.isAuthenticated()' ng-click='vm.getMessage()' class='btn btn-primary'> Get a Message</button>
 
 <p ng-if='vm.message'> {{vm.message}} </p>

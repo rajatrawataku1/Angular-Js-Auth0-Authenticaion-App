@@ -13,6 +13,10 @@
           if(authResult && authResult.accessToken && authResult.idToken){
             console.log(authResult);
             setSession(authResult);
+
+            $timeout(function(){
+              $state.go('home');
+            })
           }
         });
       }
@@ -39,6 +43,7 @@
         localStorage.removeItem('accessToken');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
+        localStorage.removeItem('profile');
       }
 
       function isAuthenticated(){
