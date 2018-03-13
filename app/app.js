@@ -20,6 +20,12 @@
           controller:'callbackController',
           templateUrl:'app/callback/callback.html',
           controllerAs:'vm'
+        })
+        .state('profile',{
+          url:'/profile',
+          controller:'ProfileController',
+          templateUrl:'app/profile/profile.html',
+          controllerAs:'vm'
         });
 
         angularAuth0Provider.init({
@@ -27,7 +33,8 @@
           domain:'rajatrawataku.auth0.com',
           responseType:'token id_token',
           redirectUri:'http://localhost:3000/callback',
-          scope:'openid'
+          scope:'openid profile',
+          audience: 'https://rajat-rawat.com/api'
         })
 
         $urlRouterProvider.otherwise('/');
